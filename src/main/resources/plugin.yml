@@ -1,0 +1,8 @@
+version: 0.1.alpha
+main: com.edadimperial.Main
+api-version: 1.19
+name: SlimeRain
+author: Kaidenleaf
+commands:
+  slimerain:
+    description: "Manages the slime rain plugin"
