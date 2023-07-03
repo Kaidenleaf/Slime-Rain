@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("xyz.jpenilla.run-paper") version "2.1.0"
 }
 
 group = "com.edadimperial"
@@ -15,6 +16,12 @@ dependencies {
     compileOnly("org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT")
 }
 
-tasks.jar {
-    destinationDirectory.set(file("server/plugins"))
+tasks {
+    jar {
+        destinationDirectory.set(file("server/plugins"))
+    }
+
+    runServer {
+        minecraftVersion("1.19.4")
+    }
 }
