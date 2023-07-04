@@ -1,0 +1,6 @@
+duration: 10 #in seconds
+frequency: 5 #in seconds
+
+messages:
+  start: "&a¡Llueven slimes!"
+  stop: "&aSlimes han dejado de caer del cielo"
