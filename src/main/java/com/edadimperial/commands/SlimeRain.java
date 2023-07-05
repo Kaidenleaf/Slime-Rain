@@ -16,14 +16,12 @@ public class SlimeRain implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player)) {
-            return true;
-        }
+        if (!(sender instanceof Player)) return true;
+        if (args.length == 0) return true;
 
         if (args[0].equalsIgnoreCase("start")) {
             SlimeRainEvent rain = new SlimeRainEvent(instance);
-            rain.startRain();
-            return true;
+            rain.startRain(((Player) sender).getWorld());
         }
 
         return true;
