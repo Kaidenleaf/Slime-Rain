@@ -13,7 +13,7 @@ public class Main extends JavaPlugin {
         getCommand("slimerain").setExecutor(new SlimeRain(this));
         getCommand("slimerain").setTabCompleter(new SlimeRainTabComplete());
         getServer().getPluginManager().registerEvents(new SlimeListener(), this);
-        DayListener listen = new DayListener(this);
+        //DayListener listen = new DayListener(this);
     }
 
 }

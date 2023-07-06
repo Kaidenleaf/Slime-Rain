@@ -17,10 +17,6 @@ dependencies {
 }
 
 tasks {
-    jar {
-        destinationDirectory.set(file("server/plugins"))
-    }
-
     runServer {
         minecraftVersion("1.19.4")
     }

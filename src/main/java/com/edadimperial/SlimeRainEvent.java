@@ -7,7 +7,6 @@ import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Slime;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -25,11 +24,13 @@ public class SlimeRainEvent {
     public void startRain(World world) {
         List<Player> players = new ArrayList<>(Bukkit.getServer().getOnlinePlayers());
         for (Player player : players) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a¡Llueven Slimes!"));
+            if (player.getWorld() == world) {
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a¡Llueven Slimes!"));
+            }
         }
 
-        int duration = 60;
-        int interval = 5;
+        int duration = 120;
+        int interval = 3;
         new BukkitRunnable() {
             int count = 0;
 
@@ -43,7 +44,9 @@ public class SlimeRainEvent {
 
                 if (count >= duration / interval) {
                     for (Player player : currentPlayers) {
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aSlimes han dejado de caer del cielo"));
+                        if (player.getWorld() == world) {
+                            player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aSlimes han dejado de caer del cielo"));
+                        }
                     }
                     if (world != null) {
                         world.setStorm(false);
